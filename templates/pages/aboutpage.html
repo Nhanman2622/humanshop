@@ -1,0 +1,24 @@
+{% extends "navi/base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="row ">
+        {% for product in products %}
+        <div class="col nft">
+            <div class="card nen" style="width: 18rem;">
+                <img src="{%static product.img|add:'.png'%}" class="card-img-top img-nft" alt="...">
+                <div class="card-body">
+
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text">{{product.content}}</p>
+                    <p class="card-text" style="color: red;">{{product.cost}} VND</p>
+                    <a href="/product/{{product.slug}}" class="btn btn-primary">Chi Tiết</a>
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
