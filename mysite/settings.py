@@ -81,7 +81,7 @@ DATABASES = {
         'default': {
         # Chúng ta không sử dụng đến Django's ORM nên dùng 'dummy'
         'ENGINE': 'django.db.backends.dummy',
-        'NAME': '',  # Tên database bạn muốn sử dụng
+        'NAME': 'cluster0',  # Tên database bạn muốn sử dụng
         'HOST': 'cluster0.cjwkw2x.mongodb.net',  # Host của MongoDB Atlas
         'PORT': 27017,  # Port mặc định của MongoDB
         'USER': 'nguyennhan2682007',
@@ -120,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'GMT'
 
 USE_I18N = True
 
