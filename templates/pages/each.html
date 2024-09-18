@@ -1,0 +1,13 @@
+{% extends "navi/base.html" %}
+{% block content %}
+{% load static %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-7 mb-5">
+            <img src="{%static each.img|add:'.png'%}" class="card-img-top img-nft" alt="...">
+        </div>
+    
+    </div>
+</div>
+    
+{% endblock %}

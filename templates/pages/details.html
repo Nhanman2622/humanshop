@@ -1,0 +1,66 @@
+{% extends "navi/base.html" %}
+{% load static %}
+{% block content %}
+<div class="nen">
+
+  <div class="container">
+    <div class="row ">
+      <div class="col nft">
+        <div class="card xoa_vien nen" style="height: 500px;">
+
+          <div class="row">
+
+            <div class="col-md-7">
+              <img src="{%static productdetails.img|add:'.png'%}" class="anhdetail" alt="...">
+            </div>
+            <div class="col-md-5">
+              <div class="card-body">
+                <h5 class="card-title">{{productdetails.name}}</h5>
+                <p class="card-text">{{productdetails.content}} </p>
+                <p class="card-text" style="color: green;">{{productdetails.cost}} VND</p>
+                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                <a class="btn btn-primary">+ Add to cart</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card xoa_vien nen">
+    <div class="card-body ">
+      <h5 class="card-subtitle mb-2 text-body-secondary">READ MORE</h5>
+      <h6 class="card-title">MAYBE YOU WILL LIKE</h6>
+      <div class="container">
+        <div class="row ">
+          {% for blog in blogs %}
+
+          <div class="col nft">
+
+            <div class="card nen" style="width: 18rem;">
+              <img src="{%static blog.img|add:'.png'%}" class="card-img-top img-nft" alt="...">
+              <div class="card-body">
+
+                <h5 class="card-title">{{blog.name}}</h5>
+                <p class="card-text">{{blog.content}}</p>
+
+                <a href="/blog/{{blog.slug}}" class="btn btn-primary">chi tiết</a>
+              </div>
+            </div>
+
+          </div>
+          {% endfor %}
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+{% endblock %}

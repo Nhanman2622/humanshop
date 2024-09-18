@@ -1,0 +1,195 @@
+{% extends "navi/managerbase.html" %}
+{% block content %}
+{% load static %}
+<div style="margin-left: 220px; width: 400px;">
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <a data-bs-toggle="modal" data-bs-target="#addModal" href="">+Add</a>
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <form action="/manager/add/product" method="post">
+                            {% csrf_token%}
+                            <li>
+                                <label for="nameRoom">Name:</label>
+                                <input type="text" name="name" id="name">
+                            </li>
+
+                            <li>
+                                <label for="writer">Writer:</label>
+                                <input type="text" name="writer" id="writer">
+                            </li>
+
+                            <li>
+                                <label for="content">content:</label>
+                                <input type="text" name="content" id="content">
+                            </li>
+
+                            <li>
+                                <label for="img">Img:</label>
+                                <input type="text" name="img" id="img">
+                            </li>
+
+                            <li>
+                                <label for="cost">Cost:</label>
+                                <input type="number" name="cost" id="cost">
+                            </li>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table" style=" width: 1050px;">
+        <thead class="table-light">
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Writer</th>
+            <th scope="col">Content</th>
+            <th scope="col">img</th>
+            <th scope="col">cost</th>
+            <th scope="col">action</th>
+        </thead>
+        {% for productsmg in products %}
+        <tbody>
+            <td>{{forloop.counter}}</td>
+            <td>{{productsmg.name}}</td>
+            <td>{{productsmg.writer}}</td>
+            <td>{{productsmg.content}}</td>
+            <td><img src="{%static productsmg.img|add:'.png'%}" class="" alt="..."></td>
+            <td>{{productsmg.cost}}</td>
+            <td><a data-bs-toggle="modal" data-bs-target="#editModal" data-id='{{productsmg.id}}'
+                    data-name="{{productsmg.name}}" data-writer="{{productsmg.writer}}"
+                    data-content="{{productsmg.content}}" data-img="{{productsmg.img}}" data-cost="{{productsmg.cost}}"
+                    href="">Edit</a> / <a data-bs-toggle="modal" data-bs-target="#deleteModal" data-name="{{productsmg.name}}" data-id='{{productsmg.id}}' href="">Delete</a>
+
+            </td>
+
+        </tbody>
+        {% endfor %}
+        <!---modaledit--->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <form name="editform" method="post">
+                                {% csrf_token%}
+                                <li>
+                                    <label for="nameRoom">Name:</label>
+                                    <input type="text" name="name" id="editname">
+                                </li>
+
+                                <li>
+                                    <label for="writer">Writer:</label>
+                                    <input type="text" name="writer" id="editwriter">
+                                </li>
+
+                                <li>
+                                    <label for="content">content:</label>
+                                    <input type="text" name="content" id="editcontent">
+                                </li>
+
+                                <li>
+                                    <label for="image">Img:</label>
+                                    <input type="text" name="image" id="editimg">
+                                </li>
+
+                                <li>
+                                    <label for="cost">Cost:</label>
+                                    <input type="number" name="cost" id="editcost">
+                                </li>
+
+                                <li>
+                                    <input type="hidden" name="method" value="PUT">
+                                </li>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---modaldel--->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <form name="delform" method="post">
+                                {% csrf_token%}
+                                <div class="d-flex">
+                                    Are you sure to delete
+                                     <input type="text" name="name" id="delname" readonly = 'true' style="margin-left:5px ;">
+                                    ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Delete</button>
+                                </div>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </table>
+    <!-- -modaldel-
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <form name="delform" method="post">
+                            {% csrf_token%}
+                            <div class="d-flex">
+                                Are you sure to delete
+                                <input type="text" name="name" id="delname" readonly = 'true'>
+                                ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    {% endblock %}
