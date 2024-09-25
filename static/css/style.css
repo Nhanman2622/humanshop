@@ -328,4 +328,6 @@ body{
 .logo1 {
     border-radius: 100%;
     margin: 20px;
+    width: 200;
+    height: 200;
 }
