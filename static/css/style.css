@@ -48,28 +48,63 @@ body {
 }
 
 /* ---home--- */
-.size-card {
-    margin-left: 200px;
-    margin-right: 100px;
-    font-size: 40px;
-    font-family: 'Oswald', sans-serif;
+
+@media screen and (max-width: 1440px) {
+    .size-img {
+        width: 1000px;
+        border-radius: 10px;
+        height: 380px;
+    }
+
+    .size-card {
+        /* margin-left: 200px;
+        margin-right: 100px; */
+        font-size: 40px;
+        font-family: 'Oswald', sans-serif;
+    }
+
+    .nd {
+        font-size: 25px;
+        font-family: 'Oswald', sans-serif;
+    }
 }
 
-.cl {
-    font-size: 50px;
-    color: blue;
-}
+@media screen and (max-width: 576px) {
+    .size-img {
+        width: 1000px;
+        max-height: 380px;
+        border-radius: 10px;
+        height: 380px;
+    }
 
-.nd {
-    font-size: 25px;
-    font-family: 'Oswald', sans-serif;
-}
+    .size-card {
+        font-size: 30px;
+        font-family: 'Oswald', sans-serif;
+    }
 
-.size-img {
-    width: 1000px;
-    margin-left: 100px;
-    border-radius: 10px;
-    height: 380px;
+    .nd {
+        font-size: 15px;
+        font-family: 'Oswald', sans-serif;
+    }
+
+    .card-home-page-section {
+        min-height: 625px;
+    }
+
+    .cl {
+        font-size: 25px;
+        color: blue;
+    }
+
+    .carousel-control-next-icon {
+        top: -8rem !important;
+        position: relative !important;
+    }
+
+    .carousel-control-prev-icon {
+        top: -8rem !important;
+        position: relative !important;
+    }
 }
 
 /* -----------------header------footer--------------- */
