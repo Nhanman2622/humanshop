@@ -67,6 +67,16 @@ body {
         font-size: 25px;
         font-family: 'Oswald', sans-serif;
     }
+
+    .late {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .nft {
+
+        padding: 10px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -104,6 +114,17 @@ body {
     .carousel-control-prev-icon {
         top: -8rem !important;
         position: relative !important;
+    }
+
+    .late {
+        margin: 20px 20px 20px 58px;
+        padding: 10px;
+    }
+
+    .nft {
+
+        padding: 10px;
+        margin-left: 55px;
     }
 }
 
@@ -270,10 +291,7 @@ body{
 
 
 
-.nft {
 
-    padding: 10px;
-}
 
 .img-nft {
     width: 286px;
@@ -310,10 +328,7 @@ body{
 
 }
 
-.late {
-    margin: 20px;
-    padding: 10px;
-}
+
 
 .img_icon {
     width: 2em;
