@@ -66,16 +66,40 @@ body {
     .nd {
         font-size: 25px;
         font-family: 'Oswald', sans-serif;
+        color: azure;
     }
 
     .late {
         margin: 20px;
         padding: 10px;
+        
     }
 
     .nft {
 
         padding: 10px;
+    }
+    .nen {
+        background-color: #222222;
+    }
+    .cl {
+        font-size: 25px;
+        color: aquamarine;
+    }
+
+    .chu{
+        font-size: 16px;
+        color: azure;
+    }
+
+    .donal{
+        height: 500px;
+        width: 400px;
+        margin-right: 40px;
+    }
+
+    .donalcard{
+        margin-left: 100px;
     }
 }
 
@@ -95,16 +119,14 @@ body {
     .nd {
         font-size: 15px;
         font-family: 'Oswald', sans-serif;
+        color: azure;
     }
 
     .card-home-page-section {
         min-height: 625px;
     }
 
-    .cl {
-        font-size: 25px;
-        color: blue;
-    }
+    
 
     .carousel-control-next-icon {
         top: -8rem !important;
@@ -119,12 +141,27 @@ body {
     .late {
         margin: 20px 20px 20px 58px;
         padding: 10px;
+        
     }
 
     .nft {
 
         padding: 10px;
         margin-left: 55px;
+    }
+
+    .nen {
+        background-color: #222222;
+    }
+
+    .cl {
+        font-size: 25px;
+        color: aquamarine;
+    }
+
+    .chu{
+        font-size: 16px;
+        color: azure;
     }
 }
 
@@ -349,9 +386,7 @@ body{
     border: none !important;
 }
 
-.nen {
-    background-color: #f9eee7;
-}
+
 
 .nenhf {
     background-color: black;
