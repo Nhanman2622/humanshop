@@ -16,6 +16,7 @@ urlpatterns=[
     path("manager/themsad/", views.themsmg, name='themsad'),
     path("manager/add/product", views.add_products, name='addpr'),
     path("manager/edit/product/<str:product_id>", views.edit_products, name='editpr'),
-    path("manager/delete/product/<str:product_id>", views.delete_products, name='deletepr')
+    path("manager/delete/product/<str:product_id>", views.delete_products, name='deletepr'),
+    path("adprofile/", views.adprofile, name='adprofile')
 
 ]

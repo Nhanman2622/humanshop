@@ -17,6 +17,9 @@ def more (request):
 def contact (request):
     return render(request, 'pages/contact.html')
 
+def adprofile (request):
+    return render(request, 'pages/me.html')
+
 # Retrive all blogs models
 def product (request):
     
