@@ -50,6 +50,11 @@ body {
 /* ---home--- */
 
 @media screen and (max-width: 1440px) {
+    .img-nft {
+        width: 286px;
+        height: 250px;
+        border-radius: 3px;
+    }
     .size-img {
         width: 1000px;
         border-radius: 10px;
@@ -104,6 +109,11 @@ body {
 }
 
 @media screen and (max-width: 576px) {
+    .img-nft {
+        width: 286px;
+        height: 250px;
+        border-radius: 3px;
+    }
     .size-img {
         width: 1000px;
         max-height: 380px;
@@ -330,11 +340,7 @@ body{
 
 
 
-.img-nft {
-    width: 286px;
-    height: 250px;
-    border-radius: 3px;
-}
+
 
 .img-coin {
     width: 286px;
@@ -565,7 +571,7 @@ body{
     width: 36px;
     padding: 7px;
     border-radius: 17px;
-    float: left;
+    /* float: left; */
     display: inline-block;
     margin-top: -2px;
 }
